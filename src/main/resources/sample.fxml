@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.app.Controller">
+   <children>
+      <Pane prefHeight="310.0" prefWidth="362.0">
+         <children>
+            <DatePicker fx:id="myDate" layoutX="115.0" layoutY="37.0" onAction="#startTest" prefHeight="23.0" prefWidth="152.0" />
+            <Button layoutX="298.0" layoutY="37.0" mnemonicParsing="false" onAction="#insertdata" text="签到" />
+            <TextField fx:id="startHour" layoutX="115.0" layoutY="90.0" prefHeight="23.0" prefWidth="152.0" />
+            <TextField fx:id="endHour" layoutX="115.0" layoutY="144.0" prefHeight="23.0" prefWidth="152.0" />
+            <Label layoutX="39.0" layoutY="94.0" text="开始:" />
+            <Label layoutX="39.0" layoutY="150.0" text="结束:" />
+            <Label layoutX="39.0" layoutY="41.0" text="日期:" />
+            <Label layoutX="39.0" layoutY="202.0" text="备注:" />
+            <TextField fx:id="remark" layoutX="115.0" layoutY="198.0" prefHeight="23.0" prefWidth="152.0" />
+            <Button fx:id="generatebut" layoutX="36.0" layoutY="250.0" mnemonicParsing="false" onAction="#toGeneratePage" prefHeight="23.0" prefWidth="303.0" text="生成页" />
+         </children>
+      </Pane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
