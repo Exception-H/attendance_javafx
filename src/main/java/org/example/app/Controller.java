@@ -110,7 +110,7 @@ public class Controller implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("generatePage.fxml"));
         Parent root = loader.load();
         stage.setTitle("生成页");
-        stage.setScene(new Scene(root,580 , 371));
+        stage.setScene(new Scene(root,780 , 520));
         stage.show();
     }
 }

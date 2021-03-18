@@ -4,16 +4,17 @@ import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Cell;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.util.Callback;
 import org.example.model.AttendanceModel;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -32,12 +33,13 @@ public class GeneratePageController implements Initializable {
     public TableColumn remeark;
     public TableColumn operation;
     public TableView table;
+    public Button returnBut;
+    public ChoiceBox chiceBox;
+    public Button poiCreate;
 
     private ObservableList<AttendanceModel> attendanceModels;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        System.out.println("经过");
         try {
             showList();
         } catch (Exception e) {
@@ -46,6 +48,12 @@ public class GeneratePageController implements Initializable {
     }
 
     private void showList() throws Exception{
+        ObservableList<String> monthStrings = FXCollections.observableArrayList();
+        monthStrings.clear();
+        List<String> ls = new ArrayList<>();
+        ls.add("1月");ls.add("2月");ls.add("3月");ls.add("4月");ls.add("5月");ls.add("6月");ls.add("7月");ls.add("8月");ls.add("9月");ls.add("10月");ls.add("11月");ls.add("12月");
+        monthStrings.addAll(ls);
+        chiceBox.setItems(monthStrings);
 
         //获取年月日
         Calendar cal = Calendar.getInstance();
@@ -138,4 +146,13 @@ public class GeneratePageController implements Initializable {
         //所有项目添加进list
         table.setItems(attendanceModels);
     }
+
+
+    public void setReturnBut(ActionEvent returnButEvent) throws Exception {
+        Stage win = (Stage)returnBut.getScene().getWindow();
+        win.close();
+        AppMain a = new AppMain();
+        a.start(new Stage());
+    }
+
 }
